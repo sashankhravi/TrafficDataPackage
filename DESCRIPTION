@@ -1,0 +1,13 @@
+Package: TrafficDataPackage
+Type: Package
+Title: Summarizes and plots accident data
+Version: 0.1.0
+Imports: maps, dplyr, tidyr, testthat, readr
+Author: Sashankh Ravi
+Maintainer: Sashankh Ravi <ravi4@purdue.edu>
+Description: This package is basically for performing certain simple manipulations with a given accidents data. The data is obtained from 'US Fatality Analysis Reporting System', which provides details on the fatal injuries due to vehicular collisions in the United States. The data is available for three years, 2013, 2014 and 2015. This package takes the data required, and can either summarize the number of accidents for each month in the years requested, or can plot the location of the accidents in a particular state for a particular year.
+License: GPL-2
+LazyData: TRUE
+RoxygenNote: 5.0.1
+Suggests: knitr, rmarkdown, testthat, dplyr, tidyr, maps, readr
+VignetteBuilder: knitr

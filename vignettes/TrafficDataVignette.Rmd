@@ -1,0 +1,38 @@
+---
+title: "TrafficDataVignette"
+author: "Sashankh Ravi"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{TrafficDataVignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r}
+library("TrafficDataPackage")
+library("maps")
+```
+
+This package has certain basic data manipulations for a particular data. The data in use is from the US National Highway Traffic Safety Administration's **Fatality Analysis Reporting System**, which is a nationwide census providing the American public yearly data regarding fatal injuries suffered in motor vehicle traffic crashes. The data is available for the years 2013, 2014 and 2015. The url for this data is:
+http://www.nhtsa.gov/Data/Fatality-Analysis-Reporting-System-(FARS)
+
+As a note, this package has in-built error mechanism which prints an error if the data is not available.
+
+
+### Sumarizing the accidents
+The first main part of this package is to take the years input, and then summarize the accidents in each month of each year. To see this function in action, an example is give below:
+```{r}
+fars_summarize_years(years = c(2013, 2014))
+```
+Internally, this function first reads the data from the file corresponding to each of the selected years, and then selects the month and year columns. This is done using the 'fars_read_years' function. To see this output, let's type:
+```{r}
+head(fars_read_years(years = c(2013, 2014)))
+```
+Then, the data is grouped by the month and year, and then summarized. 
+
+### Obtaining a map
+The other major role of this package is that given a state number and year, this package function extracts the data corresponding to that state in that year, and then plots all the locations in which the accidents happened in that state in that year. To see this function in action, 
+```{r}
+fars_map_state(state.num = 1, year = 2013)
+```
